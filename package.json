@@ -21,6 +21,7 @@
     "morgan": "~1.6.1",
     "mysql": "~2.11.1",
     "sequelize": "~3.23.3",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "express-myconnection": "1.0.4"
   }
 }
