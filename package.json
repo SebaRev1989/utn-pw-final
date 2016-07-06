@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Sistema de turnos médicos - Programación Web, UTN-FRT",
   "private": true,
-  "author" : "Sebastián Reverso",
+  "author": "Sebastián Reverso",
   "scripts": {
     "start": "node ./bin/www"
   },
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git://github.com/SebaRev1989/utn-pw-final.git"
   },
-  "license" : "Mozilla Public License Version 2.0",
+  "license": "Mozilla Public License Version 2.0",
   "dependencies": {
     "body-parser": "~1.13.2",
     "cookie-parser": "~1.3.5",
@@ -19,6 +19,8 @@
     "ejs": "~2.3.3",
     "express": "~4.13.1",
     "morgan": "~1.6.1",
+    "mysql": "~2.11.1",
+    "sequelize": "~3.23.3",
     "serve-favicon": "~2.3.0"
   }
 }
