@@ -11,6 +11,6 @@ router.get('/', function(req, res, next) {
 /* Rutas para medicos */
 router.get('/mds', mdController.index);
 router.get('/mds/newMD', mdController.newMD);
-//router.post('/mds/newMD', mdController.createMD);
+router.post('/mds/newMD', mdController.createMD);
 
 module.exports = router;

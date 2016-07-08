@@ -7,11 +7,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var partials = require('express-partials');
 
-/* Configuracion de dependencias para la db */
-
-var connection  = require('express-myconnection');
-var mysql = require('mysql');
-
 var routes = require('./routes/index');
 
 var app = express();
@@ -30,16 +25,22 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* Conexion a la db */
-app.use(
-    connection(mysql,{
-        host: 'localhost',
-        user: 'root',
-        password : 'root',
-        port : 3306,
-        database:'progweb'
-    },'pool')
-);
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password : 'root',
+  port : 3306,
+  database:'progweb'
+});
 
+connection.connect(function(err) {
+  if (err) {
+    console.error('Error de Conexion: ' + err.stack);
+    return;
+  }
+  console.log('Conectado con id: ' + connection.threadId);
+});
 
 /* Configuracion de rutas */
 
