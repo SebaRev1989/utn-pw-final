@@ -5,7 +5,7 @@ var mdController = require('../controllers/md_controller');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Sistema de Turnos' });
+  res.render('index');
 });
 
 /* Rutas para medicos */

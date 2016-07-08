@@ -20,12 +20,12 @@ app.use(partials());
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* Conexion a la db */
-var mysql = require('mysql');
+/*var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -39,8 +39,19 @@ connection.connect(function(err) {
     console.error('Error de Conexion: ' + err.stack);
     return;
   }
-  console.log('Conectado con id: ' + connection.threadId);
-});
+  console.log('Conectado a MySQL con id: ' + connection.threadId);
+});*/
+var mysql = require('mysql'),
+  myConnection = require('express-myconnection'),
+  dbOptions = {
+    host: 'localhost',
+    user: 'root',
+    password : 'root',
+    port : 3306,
+    database:'progweb'
+  };
+
+app.use(myConnection(mysql, dbOptions, 'single'));
 
 /* Configuracion de rutas */
 
