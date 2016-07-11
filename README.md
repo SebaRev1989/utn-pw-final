@@ -9,12 +9,13 @@ Consiste en el desarrollo de un sistema web de administración, el cual simula u
 4. [ ] Capturas de pantalla del sistema funcionando.
 
 ## Requisitos
-Antes de clonar el proyecto deben tener instalado y configurado NodeJS y el gestor de paquetes NPM.
+Antes de clonar el proyecto deben tener instalado y configurado NodeJS, el gestor de paquetes NPM y MySQL.
 
 ## Instalación
 1. Clonar el repositorio. Desde una consola, __git clone https://github.com/SebaRev1989/utn-pw-final__
 2. El paso anterior creará un directorio "utn-pw-final", deben entrar en el mismo.
 3. Ejecutar el comando __npm install__
+4. Crear la base de datos con el comando __mysql -u [user] -p progweb < progweb.sql__ (reemplazar user por su usuario). El script contiene datos ficticios que servirán de prueba.
 
 ## Puesta en funcionamiento
 1. Una vez que se instalaron todas las dependecias, ejecutar el comando __npm start__
