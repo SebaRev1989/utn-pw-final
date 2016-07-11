@@ -1,7 +1,6 @@
 # Programación Web - Examen Final
 Proyecto Final para la materia Programación Web.  Universidad Tecnológica Nacional - Facultad Regional Tucumán.
-Consiste en el desarrollo de un sistema web de administración, el cual simula un sistema de turnos para un centro médico.
-Este es un proyecto académico pero puede ser utilizado para fines didácticos y educativos.
+Consiste en el desarrollo de un sistema web de administración, el cual simula un sistema de turnos para un centro médico. Este es un proyecto académico pero puede ser utilizado con fines didácticos y educativos.
 
 ## Documentación solicitada
 1. [x] Objetivos del proyecto.
