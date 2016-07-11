@@ -28,10 +28,14 @@
 			      <td><%= data[i].dni %></td>
 			      <td><%= data[i].nroMatricula %></td>
 			      <td>
-			      	<button type="button" class="btn btn-success btn-xs">Editar</button>
-			      	<form action="/mds/delete/<%=data[i].medId%>" method="get">
-			      		<button type="submit" class ="btn btn-danger btn-xs" onClick="return confirm('Eliminar médico?');">Eliminar</button>
-			      	</form>
+			      	<div class="button-container">
+			      		<form action="/mds/update/<%=data[i].medId%>" method="get">
+				      		<button type="button" class="btn btn-success btn-xs">Editar</button>
+				      	</form>
+				      	<form action="/mds/delete/<%=data[i].medId%>" method="get">
+				      		<button type="submit" class ="btn btn-danger btn-xs" onClick="return confirm('Eliminar médico?');">Eliminar</button>
+				      	</form>
+			      	</div>
 			      </td>
 			    </tr>
 			<% }
