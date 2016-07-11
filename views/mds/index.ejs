@@ -29,7 +29,9 @@
 			      <td><%= data[i].nroMatricula %></td>
 			      <td>
 			      	<button type="button" class="btn btn-success btn-xs">Editar</button>
-			      	<button type="button" class ="btn btn-danger btn-xs">Eliminar</button>
+			      	<form action="/mds/delete/<%=data[i].medId%>" method="get">
+			      		<button type="submit" class ="btn btn-danger btn-xs" onClick="return confirm('Eliminar médico?');">Eliminar</button>
+			      	</form>
 			      </td>
 			    </tr>
 			<% }

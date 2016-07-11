@@ -12,5 +12,6 @@ router.get('/', function(req, res, next) {
 router.get('/mds', mdController.index);
 router.get('/mds/newMD', mdController.newMD);
 router.post('/mds/newMD', mdController.createMD);
+router.get('/mds/delete/:medId', mdController.deleteMD);
 
 module.exports = router;

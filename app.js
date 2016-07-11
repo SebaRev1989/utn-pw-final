@@ -25,22 +25,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* Conexion a la db */
-/*var mysql = require('mysql');
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password : 'root',
-  port : 3306,
-  database:'progweb'
-});
-
-connection.connect(function(err) {
-  if (err) {
-    console.error('Error de Conexion: ' + err.stack);
-    return;
-  }
-  console.log('Conectado a MySQL con id: ' + connection.threadId);
-});*/
 var mysql = require('mysql'),
   myConnection = require('express-myconnection'),
   dbOptions = {
@@ -54,7 +38,6 @@ var mysql = require('mysql'),
 app.use(myConnection(mysql, dbOptions, 'single'));
 
 /* Configuracion de rutas */
-
 app.use('/', routes);
 
 // catch 404 and forward to error handler

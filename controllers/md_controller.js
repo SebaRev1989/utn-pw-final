@@ -6,8 +6,7 @@ exports.index = function(req, res) {
 			}
 			res.render('mds/index.ejs', {data : rows});
 		});
-	})
-	//res.render('mds/index.ejs');
+	});
 };
 
 exports.newMD = function(req, res) {
@@ -31,4 +30,16 @@ exports.createMD = function(req, res) {
 			res.redirect('/mds');
 		});
 	})
+}
+
+exports.deleteMD = function(req, res) {
+	var medId = req.params.medId;
+	req.getConnection(function (err, connection) {
+		connection.query("DELETE FROM medico WHERE medId = ? ", [medId], function(err, rows) {
+			if (err) {
+				console.log("Error borrando medico: %s ", err);
+			}
+			res.redirect('/mds');
+		});
+	});
 }
