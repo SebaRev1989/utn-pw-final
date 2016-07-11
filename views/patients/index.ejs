@@ -1,0 +1,49 @@
+<div class="container">
+	<h3 class="sub-header pull-left">Pacientes registrados</h3>
+	<br>
+	<form action="/patients/newPac" method="get">
+		<button type="submit" class="btn btn-primary btn-sm pull-right">+ Agregar</button>
+	</form>
+</div>
+<br>
+<div class="table-responsive" style="background:white">
+	<table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th>Apellido</th>
+	      <th>Nombre</th>
+	      <th>DNI</th>
+	      <th>Sexo</th>
+	      <th>Fecha de Nacimiento</th>
+	      <th width="150px">Acciones</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+		<% if (data.length) {
+			for (var i = 0; i < data.length; i++) { %>
+				<tr>
+			      <td><%= data[i].apellido %></td>
+			      <td><%= data[i].nombre %></td>
+			      <td><%= data[i].dni %></td>
+			      <td><%= data[i].sexo %></td>
+			      <td><%= data[i].fechaNac %></td>
+			      <td>
+			      	<div class="button-container">
+			      		<form action="/patients/update/<%=data[i].pacId%>" method="get">
+				      		<button type="submit" class="btn btn-success btn-xs">Editar</button>
+				      	</form>
+				      	<form action="/patients/delete/<%=data[i].pacId%>" method="get">
+				      		<button type="submit" class ="btn btn-danger btn-xs" onClick="return confirm('Eliminar paciente?');">Eliminar</button>
+				      	</form>
+			      	</div>
+			      </td>
+			    </tr>
+			<% }
+       	} else { %>
+            	<tr>
+                	<td colspan="3">No hay pacientes registrados</td>
+                </tr>
+        <% } %>
+	  </tbody>
+	</table>
+</div>

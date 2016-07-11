@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mdController = require('../controllers/md_controller');
+var pacController = require('../controllers/pac_controller');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -15,5 +16,8 @@ router.post('/mds/newMD', mdController.createMD);
 router.get('/mds/delete/:medId', mdController.deleteMD);
 router.get('/mds/update/:medId', mdController.updateMD);
 router.post('/mds/update/:medId', mdController.saveMDupdate);
+
+/* Rutas para pacientes */
+router.get('/patients', pacController.index);
 
 module.exports = router;
