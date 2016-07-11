@@ -13,5 +13,7 @@ router.get('/mds', mdController.index);
 router.get('/mds/newMD', mdController.newMD);
 router.post('/mds/newMD', mdController.createMD);
 router.get('/mds/delete/:medId', mdController.deleteMD);
+router.get('/mds/update/:medId', mdController.updateMD);
+router.post('/mds/update/:medId', mdController.saveMDupdate);
 
 module.exports = router;

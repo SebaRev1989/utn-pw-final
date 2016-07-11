@@ -1,6 +1,6 @@
 exports.index = function(req, res) {
 	req.getConnection(function(err, connection) {
-		var query = connection.query('SELECT * FROM medico ORDER BY apellido ASC, nombre ASC', function(err, rows) {
+		connection.query('SELECT * FROM medico ORDER BY apellido ASC, nombre ASC', function(err, rows) {
 			if (err) {
 				console.log("Error al buscar medicos: %s", err);
 			}
@@ -21,7 +21,7 @@ exports.createMD = function(req, res) {
             dni   		: req.body.medico.dni,
             nroMatricula: req.body.medico.nroMatricula
 		};
-		var query = connection.query("INSERT INTO medico set ? ", data, function(err, rows){
+		connection.query("INSERT INTO medico set ? ", [data], function(err, rows){
 			if (err) {
 				console.log("Error al insertar: %s ", err);
 			} else {
@@ -38,6 +38,38 @@ exports.deleteMD = function(req, res) {
 		connection.query("DELETE FROM medico WHERE medId = ? ", [medId], function(err, rows) {
 			if (err) {
 				console.log("Error borrando medico: %s ", err);
+			}
+			res.redirect('/mds');
+		});
+	});
+}
+
+exports.updateMD = function(req, res) {
+	var medId = req.params.medId;
+	req.getConnection(function(err, connection) {
+		connection.query('SELECT * FROM medico WHERE medId = ?', [medId], function(err, rows) {
+			if (err) {
+				console.log("Error seleccionando medico: %s ", err);
+			}
+			res.render('mds/editMD.ejs', {data : rows});
+		});
+	});
+}
+
+exports.saveMDupdate = function(req, res) {
+	var medId = req.params.medId;
+	req.getConnection(function (err, connection) {
+		var data = {
+			apellido    : req.body.medico.apellido,
+            nombre 		: req.body.medico.nombre,
+            dni   		: req.body.medico.dni,
+            nroMatricula: req.body.medico.nroMatricula
+		};
+		connection.query("UPDATE medico set ? WHERE medId = ?", [data, medId], function(err, rows){
+			if (err) {
+				console.log("Error al actualizar: %s ", err);
+			} else {
+				console.log("Medico actualizado correctamente");
 			}
 			res.redirect('/mds');
 		});

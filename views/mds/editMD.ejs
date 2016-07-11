@@ -1,0 +1,10 @@
+<h3 class="sub-header">Editar m&eacute;dico</h3><br>
+<div class="container">
+	<form method="post" action="/mds/update/<%=data[0].medId%>">
+		<input type="text" placeholder="Apellido" name="medico[apellido]" value="<%= data[0].apellido %>" autofocus><br><br>
+	    <input type="text" placeholder="Nombre" name="medico[nombre]" value="<%= data[0].nombre %>" ><br><br>
+	    <input type="text" placeholder="DNI" name="medico[dni]" value="<%= data[0].dni %>" ><br><br>
+	    <input type="text" placeholder="Número de Matrícula" name="medico[nroMatricula]" value="<%= data[0].nroMatricula %>"><br><br>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+	</form>
+</div>
