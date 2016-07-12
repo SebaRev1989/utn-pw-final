@@ -3,8 +3,9 @@ exports.index = function(req, res) {
 		connection.query('SELECT * FROM medico ORDER BY apellido ASC, nombre ASC', function(err, rows) {
 			if (err) {
 				console.log("Error al buscar medicos: %s", err);
+			} else {
+				res.render('mds/index.ejs', {data : rows});
 			}
-			res.render('mds/index.ejs', {data : rows});
 		});
 	});
 };
@@ -50,8 +51,9 @@ exports.updateMD = function(req, res) {
 		connection.query('SELECT * FROM medico WHERE medId = ?', [medId], function(err, rows) {
 			if (err) {
 				console.log("Error seleccionando medico: %s ", err);
+			} else {
+				res.render('mds/editMD.ejs', {data : rows});
 			}
-			res.render('mds/editMD.ejs', {data : rows});
 		});
 	});
 }
@@ -65,7 +67,7 @@ exports.saveMDupdate = function(req, res) {
             dni   		: req.body.medico.dni,
             nroMatricula: req.body.medico.nroMatricula
 		};
-		connection.query("UPDATE medico set ? WHERE medId = ?", [data, medId], function(err, rows){
+		connection.query("UPDATE medico SET ? WHERE medId = ?", [data, medId], function(err, rows){
 			if (err) {
 				console.log("Error al actualizar: %s ", err);
 			} else {

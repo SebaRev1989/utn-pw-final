@@ -1,0 +1,21 @@
+<h3 class="sub-header">Editar paciente</h3><br>
+<div class="container">
+	<form method="post" action="/patients/update/<%=data[0].pacId%>">
+		<input type="text" placeholder="Apellido" name="paciente[apellido]" value="<%= data[0].apellido %>" autofocus><br><br>
+	    <input type="text" placeholder="Nombre" name="paciente[nombre]" value="<%= data[0].nombre %>"><br><br>
+	    <input type="text" placeholder="DNI" name="paciente[dni]" value="<%= data[0].dni %>"><br><br>
+	    <select name="paciente[sexo]" id="cbbPacSexo">
+	    	<option value="F">Femenino</option>
+	    	<% if (data[0].sexo === 'M') { %>
+	    		<option value="M" selected="selected">Masculino</option>
+	    	<% } else { %>
+	    		<option value="M">Masculino</option>
+	    	<% } %>
+	    </select><br><br>
+	    <div>
+	    	Fecha de Nacimiento:
+			<input type="date" name="paciente[fechaNac]" value="<%= data[0].fechaNac %>">
+	    </div><br><br>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+	</form>
+</div>
