@@ -32,3 +32,15 @@ exports.createPac = function(req, res) {
 		});
 	});
 }
+
+exports.deletePac = function(req, res) {
+	var pacId = req.params.pacId;
+	req.getConnection(function (err, connection) {
+		connection.query("DELETE FROM paciente WHERE pacId = ? ", [pacId], function(err, rows) {
+			if (err) {
+				console.log("Error borrando paciente: %s ", err);
+			}
+			res.redirect('/patients');
+		});
+	});
+}

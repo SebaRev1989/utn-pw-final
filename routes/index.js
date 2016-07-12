@@ -21,5 +21,6 @@ router.post('/mds/update/:medId', mdController.saveMDupdate);
 router.get('/patients', pacController.index);
 router.get('/patients/newPac', pacController.newPac);
 router.post('/patients/newPac', pacController.createPac);
+router.get('/patients/delete/:pacId', pacController.deletePac);
 
 module.exports = router;
