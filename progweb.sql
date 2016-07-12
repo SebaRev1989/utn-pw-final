@@ -41,6 +41,34 @@ LOCK TABLES `medico` WRITE;
 INSERT INTO `medico` VALUES (2,'Diaz','Mario',48554841,1579),(3,'Alvarez','Juan Pablo',574125752,12563);
 /*!40000 ALTER TABLE `medico` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `paciente`
+--
+
+DROP TABLE IF EXISTS `paciente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `paciente` (
+  `pacId` int(11) NOT NULL AUTO_INCREMENT,
+  `apellido` varchar(45) NOT NULL,
+  `nombre` varchar(45) NOT NULL,
+  `dni` bigint(20) NOT NULL,
+  `sexo` char(1) NOT NULL,
+  `fechaNac` date NOT NULL,
+  PRIMARY KEY (`pacId`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `paciente`
+--
+
+LOCK TABLES `paciente` WRITE;
+/*!40000 ALTER TABLE `paciente` DISABLE KEYS */;
+INSERT INTO `paciente` VALUES (2,'Alvares','Roberto',45875542,'M','2003-05-27'),(3,'Juarez','Ana',57442155,'F','2008-03-21');
+/*!40000 ALTER TABLE `paciente` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -51,4 +79,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-07-11 18:02:38
+-- Dump completed on 2016-07-12 11:20:23
