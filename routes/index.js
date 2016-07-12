@@ -19,5 +19,7 @@ router.post('/mds/update/:medId', mdController.saveMDupdate);
 
 /* Rutas para pacientes */
 router.get('/patients', pacController.index);
+router.get('/patients/newPac', pacController.newPac);
+router.post('/patients/newPac', pacController.createPac);
 
 module.exports = router;

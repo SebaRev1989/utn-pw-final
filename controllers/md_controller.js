@@ -21,9 +21,9 @@ exports.createMD = function(req, res) {
             dni   		: req.body.medico.dni,
             nroMatricula: req.body.medico.nroMatricula
 		};
-		connection.query("INSERT INTO medico set ? ", [data], function(err, rows){
+		connection.query("INSERT INTO medico SET ? ", [data], function(err, rows){
 			if (err) {
-				console.log("Error al insertar: %s ", err);
+				console.log("Error al insertar medico: %s ", err);
 			} else {
 				console.log("Medico creado correctamente");
 			}

@@ -10,6 +10,7 @@
 	<table class="table table-striped">
 	  <thead>
 	    <tr>
+	      <th>#</th>
 	      <th>Apellido</th>
 	      <th>Nombre</th>
 	      <th>DNI</th>
@@ -22,6 +23,7 @@
 		<% if (data.length) {
 			for (var i = 0; i < data.length; i++) { %>
 				<tr>
+				  <td><%= data[i].pacId %></td>
 			      <td><%= data[i].apellido %></td>
 			      <td><%= data[i].nombre %></td>
 			      <td><%= data[i].dni %></td>

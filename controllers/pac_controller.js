@@ -8,3 +8,27 @@ exports.index = function(req, res) {
 		});
 	});
 };
+
+exports.newPac = function(req, res) {
+	res.render('patients/newPac.ejs');
+}
+
+exports.createPac = function(req, res) {
+	req.getConnection(function (err, connection) {
+		var data = {
+			apellido	: req.body.paciente.apellido,
+			nombre		: req.body.paciente.nombre,
+			dni			: req.body.paciente.dni,
+			sexo		: req.body.paciente.sexo,
+			fechaNac	: req.body.paciente.fechaNac
+		};
+		connection.query('INSERT INTO paciente SET ? ', [data], function(err, rows) {
+			if (err) {
+				console.log("Error al insertar paciente: %s ", err);
+			} else {
+				console.log("Paciente creado correctamente");
+			}
+			res.redirect('/patients')
+		});
+	});
+}
