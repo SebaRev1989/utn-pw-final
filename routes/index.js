@@ -3,6 +3,7 @@ var router = express.Router();
 
 var mdController = require('../controllers/md_controller');
 var pacController = require('../controllers/pac_controller');
+var chController = require('../controllers/ch_controller');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -24,5 +25,8 @@ router.post('/patients/newPac', pacController.createPac);
 router.get('/patients/delete/:pacId', pacController.deletePac);
 router.get('/patients/update/:pacId', pacController.updatePac);
 router.post('/patients/update/:pacId', pacController.savePacUpdate);
+
+/* Rutas para historias clinicas */
+router.get('/ch/index/:pacId', chController.index);
 
 module.exports = router;

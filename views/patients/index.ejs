@@ -16,7 +16,7 @@
 	      <th>DNI</th>
 	      <th>Sexo</th>
 	      <th>Fecha de Nacimiento</th>
-	      <th width="150px">Acciones</th>
+	      <th width="200px">Acciones</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -36,6 +36,9 @@
 				      	</form>
 				      	<form action="/patients/delete/<%=data[i].pacId%>" method="get">
 				      		<button type="submit" class ="btn btn-danger btn-xs" onClick="return confirm('Eliminar paciente?');">Eliminar</button>
+				      	</form>
+				      	<form action="/ch/index/<%=data[i].pacId%>" method="get">
+				      		<button type="submit" class ="btn btn-warning btn-xs">Ver Historial</button>
 				      	</form>
 			      	</div>
 			      </td>
