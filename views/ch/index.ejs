@@ -1,9 +1,9 @@
 <div class="container">
 	<h3 class="sub-header pull-left">Historia Cl&iacute;nica</h3>
 	<br><br><br>
-	<h4>Paciente: <%= data[0].apellido %>, <%= data[0].nombre %></h4>
+	<h4>Paciente: <%= pac[0].apellido %>, <%= pac[0].nombre %></h4>
 	<br>
-	<form action="/ch/newCH" method="get">
+	<form action="/ch/newCH/<%= pac[0].pacId %>" method="get">
 		<button type="submit" class="btn btn-primary btn-sm pull-right">+ Agregar</button>
 	</form>
 </div>

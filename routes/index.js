@@ -28,5 +28,7 @@ router.post('/patients/update/:pacId', pacController.savePacUpdate);
 
 /* Rutas para historias clinicas */
 router.get('/ch/index/:pacId', chController.index);
+router.get('/ch/newCH/:pacId', chController.newCH);
+router.post('/ch/newCH/:pacId', chController.createCH);
 
 module.exports = router;

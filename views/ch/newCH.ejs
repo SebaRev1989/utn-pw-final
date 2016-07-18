@@ -1,0 +1,15 @@
+<form action="/ch/newCH/<%= pacId %>" method="post">
+	<h3>Nuevo detalle de Historia Cl&iacute;nica</h3>
+	<p>Ingrese la descripci&oacute;n</p>
+	<textarea name="historia" id="historia" cols="50" rows="10"></textarea>
+	<br><br>
+	<select name="medId" id="cbbMedId">
+		<% if (med.length) {
+			for (var i = 0; i < med.length; i++) { %>
+				<option value="<%= med[i].medId %>"><%= med[i].apellido %>, <%= med[i].nombre %></option>
+			<% } %>
+		<% } %>
+	</select>
+	<br><br>
+	<button type="submit" class="btn btn-primary">Registrar</button>
+</form>
