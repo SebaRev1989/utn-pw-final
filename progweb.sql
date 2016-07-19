@@ -16,6 +16,37 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `histClinica`
+--
+
+DROP TABLE IF EXISTS `histClinica`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `histClinica` (
+  `histId` int(11) NOT NULL AUTO_INCREMENT,
+  `pacId` int(11) NOT NULL,
+  `medId` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `descripcion` text NOT NULL,
+  PRIMARY KEY (`histId`),
+  KEY `pacId` (`pacId`),
+  KEY `medId` (`medId`),
+  CONSTRAINT `histClinica_ibfk_1` FOREIGN KEY (`pacId`) REFERENCES `paciente` (`pacId`),
+  CONSTRAINT `histClinica_ibfk_2` FOREIGN KEY (`medId`) REFERENCES `medico` (`medId`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `histClinica`
+--
+
+LOCK TABLES `histClinica` WRITE;
+/*!40000 ALTER TABLE `histClinica` DISABLE KEYS */;
+INSERT INTO `histClinica` VALUES (1,3,3,'2016-07-18','Historia clinica de pruebas'),(2,2,2,'2016-07-18','Nueva hist clinica de pruebas!!!'),(3,2,2,'2016-07-18','Prueba 3'),(4,3,2,'2016-07-18','nueva prueba');
+/*!40000 ALTER TABLE `histClinica` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `medico`
 --
 
@@ -79,4 +110,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-07-12 11:20:23
+-- Dump completed on 2016-07-19  7:38:00
