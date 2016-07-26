@@ -4,6 +4,7 @@ var router = express.Router();
 var mdController = require('../controllers/md_controller');
 var pacController = require('../controllers/pac_controller');
 var chController = require('../controllers/ch_controller');
+var shiftController = require('../controllers/shift_controller');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -30,5 +31,8 @@ router.post('/patients/update/:pacId', pacController.savePacUpdate);
 router.get('/ch/index/:pacId', chController.index);
 router.get('/ch/newCH/:pacId', chController.newCH);
 router.post('/ch/newCH/:pacId', chController.createCH);
+
+/* Rutas para turnos */
+router.get('/shifts', shiftController.index);
 
 module.exports = router;
