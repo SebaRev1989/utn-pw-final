@@ -54,7 +54,7 @@ exports.createCH = function(req, res) {
 			} else {
 				console.log("Historia clinica actualizada correctamente");
 			}
-			res.redirect('/patients');
+			res.redirect('/ch/index/' + req.params.pacId);
 		});
 	});
 }
