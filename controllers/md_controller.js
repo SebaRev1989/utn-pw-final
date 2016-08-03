@@ -8,7 +8,7 @@ exports.index = function(req, res) {
 			}
 		});
 	});
-};
+}
 
 exports.newMD = function(req, res) {
 	res.render('mds/newMD.ejs');

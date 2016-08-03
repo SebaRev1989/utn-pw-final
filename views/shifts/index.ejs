@@ -5,7 +5,19 @@
 	    <div>
 	    	Fecha:
 			<input type="date" name="turnos[fecha]">
-	    </div><br><br>
+	    </div><br>
     <button type="submit" class="btn btn-primary">Habilitar Turnos</button>
 	</form>
+	<br><br>
+	<p>D&iacute;as con turnos habilidaros</p>
+	<br>
+	<% if (data.length) { %>
+		<ul>
+			<% for (var i = 0; i < data.length; i++) { %>
+				<li><a href="/"><%= data[i].fecha %></a></li>
+			<% } %>
+		</ul>
+	<%} else { %>
+    	No se habilit&oacute; ning&uacute;n d&iacute;a de atenci&oacute;n.
+    <% } %>
 </div>

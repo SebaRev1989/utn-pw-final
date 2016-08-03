@@ -34,5 +34,6 @@ router.post('/ch/newCH/:pacId', chController.createCH);
 
 /* Rutas para turnos */
 router.get('/shifts', shiftController.index);
+router.post('/shifts/enableShifts', shiftController.enableShifts);
 
 module.exports = router;
