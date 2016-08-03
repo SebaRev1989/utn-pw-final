@@ -14,7 +14,7 @@
 	<% if (data.length) { %>
 		<ul>
 			<% for (var i = 0; i < data.length; i++) { %>
-				<li><a href="/"><%= data[i].fecha %></a></li>
+				<li><a href="/"><%= moment(data[i].fecha).format('DD/MM/YYYY') %></a></li>
 			<% } %>
 		</ul>
 	<%} else { %>

@@ -1,3 +1,5 @@
+var moment = require('moment');
+
 exports.index = function(req, res) {
 	var pacId = req.params.pacId;
 	var consulta = 'SELECT histClinica.fecha AS fecha, histClinica.descripcion AS descripcion, paciente.apellido '
@@ -16,11 +18,11 @@ exports.index = function(req, res) {
 						if (err) {
 							console.log("Error al buscar paciente: %s", err);
 						} else {
-							res.render('ch/index.ejs', {data : rows});
+							res.render('ch/index.ejs', {data : rows, moment : moment});
 						}
 					});
 				} else {
-					res.render('ch/index.ejs', {data : rows});
+					res.render('ch/index.ejs', {data : rows, moment : moment});
 				}
 			}
 		});

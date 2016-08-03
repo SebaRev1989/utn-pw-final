@@ -14,7 +14,7 @@
 	    </select><br><br>
 	    <div>
 	    	Fecha de Nacimiento:
-			<input type="date" name="paciente[fechaNac]" value="<%= data[0].fechaNac %>">
+			<input type="date" name="paciente[fechaNac]" value="<%= moment(data[0].fechaNac).format('YYYY-MM-DD') %>">
 	    </div><br><br>
     <button type="submit" class="btn btn-primary">Registrar</button>
 	</form>

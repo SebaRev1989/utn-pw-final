@@ -8,7 +8,7 @@
 			for (var i = 0; i < data.length; i++) { %>
 				<% if (i % 2 === 0) { %>
 					<div class="col-md-4">
-						Fecha: <%= data[i].fecha %>
+						Fecha: <%= moment(data[i].fecha).format('DD/MM/YYYY') %>
 						<br>
 						<%= data[i].descripcion %>
 						<br>
@@ -16,7 +16,7 @@
 					</div>
 				<% } else { %>
 					<div class="col-md-4 col-md-offset-8">
-						Fecha: <%= data[i].fecha %>
+						Fecha: <%= moment(data[i].fecha).format('DD/MM/YYYY') %>
 						<br>
 						<%= data[i].descripcion %>
 						<br>

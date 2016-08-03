@@ -28,7 +28,7 @@
 			      <td><%= data[i].nombre %></td>
 			      <td><%= data[i].dni %></td>
 			      <td><%= data[i].sexo %></td>
-			      <td><%= data[i].fechaNac %></td>
+			      <td><%= moment(data[i].fechaNac).format('DD/MM/YYYY') %></td>
 			      <td>
 			      	<div class="button-container">
 			      		<form action="/patients/update/<%=data[i].pacId%>" method="get">

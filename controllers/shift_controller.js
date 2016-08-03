@@ -1,10 +1,12 @@
+var moment = require('moment');
+
 exports.index = function(req, res) {
 	req.getConnection(function(err, connection) {
 		connection.query('SELECT DISTINCT fecha FROM turno ORDER BY fecha ASC', function(err, rows) {
 			if (err) {
 				console.log("Error al buscar turnos: %s", err);
 			} else {
-				res.render('shifts/index.ejs', {data : rows});
+				res.render('shifts/index.ejs', {data : rows, moment : moment});
 			}
 		});
 	});
@@ -56,7 +58,7 @@ exports.enableShifts = function(req, res) {
 							if (err) {
 								console.log("Error al buscar turnos: %s", err);
 							} else {
-								res.render('shifts/index.ejs', {data : rows});
+								res.render('shifts/index.ejs', {data : rows, moment : moment});
 							}
 						});
 					});
