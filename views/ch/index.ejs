@@ -2,35 +2,29 @@
 	<h3 class="sub-header pull-left">Historia Cl&iacute;nica</h3>
 	<br><br><br>
 	<h4>Paciente: <%= data[0].pacApellido %>, <%= data[0].pacNombre %></h4>
-	<hr style="background:#245580; border:0; height:1px" />
+	<hr style="background:#245580; border:0; height:3px" />
 	<div class="row">
 		<% if (data[0].descripcion) {
-			for (var i = 0; i < data.length; i++) { %>
-				<% if (i % 2 === 0) { %>
+			for (var i = 0; i < data.length; i++) {
+				if (i % 2 === 0) { %>
 					<div class="col-md-4">
-						Fecha: <%= moment(data[i].fecha).format('DD/MM/YYYY') %>
-						<br>
-						<%= data[i].descripcion %>
-						<br>
-						Atendido por: <%= data[i].medApellido %>, <%= data[i].medNombre %>
-					</div>
 				<% } else { %>
 					<div class="col-md-4 col-md-offset-8">
-						Fecha: <%= moment(data[i].fecha).format('DD/MM/YYYY') %>
+				<% } %>
+						<p><small>Fecha: <%= moment(data[i].fecha).format('DD/MM/YYYY') %></small>
 						<br>
-						<%= data[i].descripcion %>
+						<strong><%= data[i].descripcion %></strong>
 						<br>
-						Atendido por: <%= data[i].medApellido %>, <%= data[i].medNombre %>
+						<small>Atendido por: <%= data[i].medApellido %>, <%= data[i].medNombre %></small></p>
 					</div>
-				<% }
-			} %>
+			<% } %>
 			<br><br><br>
 		<% } else { %>
 			<p>No hay historia cl&iacute;nica del paciente seleccionado</p>
 		<% } %>
 	</div>
 	<br>
-	<hr style="background:#245580; border:0; height:1px" />
+	<hr style="background:#245580; border:0; height:3px" />
 	<form action="/ch/newCH/<%= data[0].pacId %>" method="get">
 		<button type="submit" class="btn btn-primary btn-sm pull-right">+ Agregar</button>
 	</form>
