@@ -78,5 +78,14 @@ exports.enableShifts = function(req, res) {
 }
 
 exports.listShifts = function(req, res) {
-	res.render('shifts/listShifts.ejs', {fecha : req.params.fecha, moment : moment});
+	var fecha = req.params.fecha;
+	req.getConnection(function(err, connection) {
+		connection.query('SELECT * FROM turno WHERE fecha = ?', [fecha], function(err, rows) {
+			if (err) {
+				console.log("Error al buscar turnos: %s", err);
+			} else {
+				res.render('shifts/listShifts.ejs', {data : rows, moment : moment});
+			}
+		});
+	});
 }
