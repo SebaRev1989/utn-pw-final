@@ -34,3 +34,6 @@ node_modules
 
 # Archivos backup Workbench
 *.bak
+
+# Archivos PDF
+*.pdf

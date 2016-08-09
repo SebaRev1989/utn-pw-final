@@ -5,8 +5,11 @@ Consiste en el desarrollo de un sistema web de administración, el cual simula u
 ## Documentación solicitada
 1. [x] Objetivos del proyecto.
 2. [x] Diagrama Entidad - Relación.
-3. [ ] Casos de Uso de las funcionalidades desarrolladas.
-4. [ ] Capturas de pantalla del sistema funcionando.
+3. [x] Casos de Uso de las funcionalidades desarrolladas.
+4. [x] Capturas de pantalla del sistema funcionando.
+
+### Aclaración
+El repositorio solo contendrá como documentación el Diagrama Entidad-Relación.
 
 ## Requisitos
 Antes de clonar el proyecto deben tener instalado y configurado NodeJS, el gestor de paquetes NPM y MySQL.
