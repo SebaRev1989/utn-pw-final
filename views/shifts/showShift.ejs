@@ -1,0 +1,6 @@
+<div class="container">
+	<h3 class="sub-header pull-left">Detalle del turno</h3>
+	<br><br><br>
+	<p>El turno fue asignado al paciente <%=data[0].pacienteNombre%> <%=data[0].pacienteApellido%> para el d&iacute;a <%= moment(data[0].fecha).format('DD/MM/YYYY') %> a las <%= data[0].hora %>.  El paciente ser&aacute; atendido por <%=data[0].medicoNombre%> <%=data[0].medicoApellido%>.
+	</p>
+</div>

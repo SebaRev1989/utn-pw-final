@@ -38,5 +38,6 @@ router.post('/shifts/enableShifts', shiftController.enableShifts);
 router.get('/shifts/listShifts/:fecha', shiftController.listShifts);
 router.get('/shifts/assign/:turnoId', shiftController.newShift);
 router.post('/shifts/assign/:turnoId', shiftController.assignShift);
+router.get('/shifts/show/:turnoId', shiftController.showShift);
 
 module.exports = router;

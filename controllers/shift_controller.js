@@ -93,11 +93,6 @@ exports.listShifts = function(req, res) {
 	});
 }
 
-/*
-router.get('/shifts/assing/:turnoId', shiftController.newShift);
-router.post('/shifts/assing/:turnoId', shiftController.assignShift)
-*/
-
 exports.newShift = function(req, res) {
 	var turnoId = req.params.turnoId;
 	var consulta = 'SELECT turno.turnoId, turno.fecha, turno.hora, medico.apellido AS medicoApellido, '
@@ -131,6 +126,22 @@ exports.assignShift = function(req, res) {
 				console.log("Asignacion correcta");
 			}
 			res.redirect('/shifts');
+		});
+	});
+}
+
+exports.showShift = function(req, res) {
+	var turnoId = req.params.turnoId;
+	var consulta = 'SELECT turno.fecha, turno.hora, paciente.apellido AS pacienteApellido, paciente.nombre AS pacienteNombre, '
+		+ 'medico.apellido AS medicoApellido, medico.nombre AS medicoNombre FROM turno INNER JOIN paciente ON '
+		+ 'turno.pacId = paciente.pacId INNER JOIN medico ON turno.medId = medico.medId WHERE turno.turnoId = ?';
+	req.getConnection(function(err, connection) {
+		connection.query(consulta, [turnoId], function(err, rows) {
+			if (err) {
+				console.log("Error al buscar turno: %s", err);
+			} else {
+				res.render('shifts/showShift.ejs', {data : rows, moment : moment});
+			}
 		});
 	});
 }
