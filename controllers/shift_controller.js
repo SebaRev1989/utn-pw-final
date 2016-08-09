@@ -80,12 +80,57 @@ exports.enableShifts = function(req, res) {
 exports.listShifts = function(req, res) {
 	var fecha = req.params.fecha;
 	req.getConnection(function(err, connection) {
-		connection.query('SELECT * FROM turno WHERE fecha = ?', [fecha], function(err, rows) {
+		var consulta = 'SELECT turno.turnoId, turno.fecha, turno.hora, turno.pacId, medico.apellido AS medicoApellido, '
+			+ 'medico.nombre AS medicoNombre FROM turno INNER JOIN medico ON turno.medId = medico.medId '
+			+ 'WHERE turno.fecha = ?';
+		connection.query(consulta, [fecha], function(err, rows) {
 			if (err) {
 				console.log("Error al buscar turnos: %s", err);
 			} else {
 				res.render('shifts/listShifts.ejs', {data : rows, moment : moment});
 			}
+		});
+	});
+}
+
+/*
+router.get('/shifts/assing/:turnoId', shiftController.newShift);
+router.post('/shifts/assing/:turnoId', shiftController.assignShift)
+*/
+
+exports.newShift = function(req, res) {
+	var turnoId = req.params.turnoId;
+	var consulta = 'SELECT turno.turnoId, turno.fecha, turno.hora, medico.apellido AS medicoApellido, '
+		+ 'medico.nombre AS medicoNombre FROM turno INNER JOIN medico ON turno.medId = medico.medId '
+		+ 'WHERE turno.turnoId = ?';
+	req.getConnection(function(err, connection) {
+		connection.query(consulta, [turnoId], function (err, shiftsRows) {
+			if (err) {
+				console.log("Error al buscar turno: %s", err);
+			} else {
+				connection.query('SELECT * FROM paciente ORDER BY apellido ASC, nombre ASC', function(err, pacientRows) {
+					if (err) {
+						console.log("Error al buscar pacientes: %s", err);
+					} else {
+						res.render('shifts/assignShift.ejs', {data : shiftsRows, pacient : pacientRows, moment : moment});
+					}
+				});
+			}
+		});
+	});
+}
+
+exports.assignShift = function(req, res) {
+	var turnoId = req.params.turnoId;
+	var pacId = req.body.pacId;
+	req.getConnection(function(err, connection) {
+		connection.query('UPDATE turno SET pacId = ? WHERE turnoId = ?', [pacId, turnoId], function(err, rows) {
+			if (err) {
+				console.log("Error al asignar turno: %s", err);
+			} else {
+				console.log("Asignacion correcta");
+			}
+			res.redirect('/shifts');
 		});
 	});
 }

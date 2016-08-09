@@ -10,7 +10,7 @@
 	    <tr>
 	      <th>Horario</th>
 	      <% for(var i=0; i<data.length; i=i+4) { %>
-	      	<th><%= data[i].medId %></th>
+	      	<th><%= data[i].medicoApellido %>, <%= data[i].medicoNombre %></th>
 	      <% } %>
 	    </tr>
 	  </thead>
@@ -20,9 +20,9 @@
 	      <% for(var i=0; i<data.length; i=i+4) { %>
 	      	<td>
 	      		<% if(data[i].pacId === null) { %>
-	      			Disponible
+	      			<a href="/shifts/assign/<%=data[i].turnoId%>">Disponible</a>
 	      		<% } else { %>
-	      			Asignado
+	      			<a href="">Asignado</a>
 	      		<% } %>
 	      	</td>
 	      <% } %>
@@ -32,9 +32,9 @@
 	      <% for(var i=1; i<data.length; i=i+4) { %>
 	      	<td>
 	      		<% if(data[i].pacId === null) { %>
-	      			Disponible
+	      			<a href="/shifts/assign/<%=data[i].turnoId%>">Disponible</a>
 	      		<% } else { %>
-	      			Asignado
+	      			<a href="">Asignado</a>
 	      		<% } %>
 	      	</td>
 	      <% } %>
@@ -44,9 +44,9 @@
 	      <% for(var i=2; i<data.length; i=i+4) { %>
 	      	<td>
 	      		<% if(data[i].pacId === null) { %>
-	      			Disponible
+	      			<a href="/shifts/assign/<%=data[i].turnoId%>">Disponible</a>
 	      		<% } else { %>
-	      			Asignado
+	      			<a href="">Asignado</a>
 	      		<% } %>
 	      	</td>
 	      <% } %>
@@ -56,9 +56,9 @@
 	      <% for(var i=3; i<data.length; i=i+4) { %>
 	      	<td>
 	      		<% if(data[i].pacId === null) { %>
-	      			Disponible
+	      			<a href="/shifts/assign/<%=data[i].turnoId%>">Disponible</a>
 	      		<% } else { %>
-	      			Asignado
+	      			<a href="">Asignado</a>
 	      		<% } %>
 	      	</td>
 	      <% } %>

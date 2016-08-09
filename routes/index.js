@@ -36,5 +36,7 @@ router.post('/ch/newCH/:pacId', chController.createCH);
 router.get('/shifts', shiftController.index);
 router.post('/shifts/enableShifts', shiftController.enableShifts);
 router.get('/shifts/listShifts/:fecha', shiftController.listShifts);
+router.get('/shifts/assign/:turnoId', shiftController.newShift);
+router.post('/shifts/assign/:turnoId', shiftController.assignShift);
 
 module.exports = router;

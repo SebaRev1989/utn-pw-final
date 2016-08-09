@@ -1,0 +1,17 @@
+<div class="container">
+	<form method="post" action="/shifts/assign/<%=data[0].turnoId%>">
+		<h3 class="sub-header pull-left">Asignaci&oacute;n de Turno</h3>
+		<br><br><br>
+		<h5 class="pull-left"><%= moment(data[0].fecha).format('DD/MM/YYYY') %> - <%= data[0].hora %></h5>
+		<br><br>
+		<h5 class="pull-left">M&eacute;dico: <%= data[0].medicoApellido%>, <%= data[0].medicoNombre%></h5>
+		<br><br><br>
+		<select name="pacId" id="cbbPaciente">
+			<% for(var i = 0; i < pacient.length; i++) { %>
+				<option value="<%= pacient[i].pacId %>"><%= pacient[i].apellido%>, <%= pacient[i].nombre%></option>
+			<% } %>
+		</select>
+		<br><br>
+		<button type="submit" class="btn btn-primary">Registrar</button>
+	</form>
+</div>
